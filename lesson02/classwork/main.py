@@ -1,11 +1,13 @@
+from typing import Callable
+
+
 # создать декоратор который будет считать сколько раз была запущена функция
 # и будет выводит это значение после каждого запуска функции
 #
+def decor(func: Callable) -> Callable:
+    counter: int = 0
 
-def decor(func):
-    counter = 0
-
-    def wrapper():
+    def wrapper() -> None:
         nonlocal counter
         counter += 1
         print('count:', counter)
@@ -19,12 +21,12 @@ print(50 * '*', 'сколько раз была запущена функция 
 
 
 @decor
-def func1():
+def func1() -> None:
     print('func1')
 
 
 @decor
-def func2():
+def func2() -> None:
     print('func2')
 
 
@@ -39,10 +41,10 @@ func2()
 # который будет считать общее количество запущенных  функций декорированных этим декоратором
 #
 
-def decor2(func, func_calls={}):
-    func_calls[func] = 0
+def decor2(func: Callable, func_calls: dict = {}) -> Callable:
+    func_calls[func]: dict = 0
 
-    def wrapper():
+    def wrapper() -> None:
         func_calls[func] += 1
         print('decor calls:', sum(func_calls.values()))
         func()
@@ -58,12 +60,12 @@ print(50 * '*',
 
 
 @decor2
-def func3():
+def func3() -> None:
     print('func3')
 
 
 @decor2
-def func4():
+def func4() -> None:
     print('func4')
 
 
