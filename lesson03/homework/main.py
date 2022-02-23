@@ -1,14 +1,25 @@
 # 1) Створити абстрактний клас Printable який буде описувати абстрактний метод print()
 #
-from abc import ABC
+from abc import ABC, abstractmethod
 
 
 class Printable(ABC):
-    pass
+    @abstractmethod
+    def print(self):
+        pass
+
 
 # 2) Створити класи Book та Magazine в кожного в конструкторі змінна name, та який наслідуются від класу Printable
 #
 
+class Book(Printable):
+    def print(self):
+        print("!!")
+
+
+class Magazine(Printable):
+    def print(self):
+        print("!!!!")
 
 # 3) Створити свій кастомний Exception
 #

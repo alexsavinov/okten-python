@@ -5,7 +5,7 @@ from typing import Callable
 # и будет выводит это значение после каждого запуска функции
 #
 def decor(func: Callable) -> Callable:
-    counter: int = 0
+    counter = 0
 
     def wrapper() -> None:
         nonlocal counter
@@ -42,8 +42,8 @@ func2()
 #
 
 def wrap_decor():
-    def decor2(func: Callable, func_calls: dict = {}) -> Callable:
-        func_calls[func]: dict = 0
+    def decor2(func: Callable, func_calls: dict[Callable] = {}) -> Callable:
+        func_calls[func] = 0
 
         def wrapper() -> None:
             func_calls[func] += 1

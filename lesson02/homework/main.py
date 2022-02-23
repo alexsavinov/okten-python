@@ -4,7 +4,7 @@
 # запишите 5 тудушек
 # и выведете все
 #
-from typing import Callable, AnyStr
+from typing import Callable
 
 
 def notebook():
@@ -34,7 +34,7 @@ print(get_all())
 #
 
 def notebook_t() -> tuple[Callable]:
-    todo_list: list[str] = []
+    todo_list = []
 
     def add_todo_t(todo: str) -> None:
         todo_list.append(todo)
@@ -63,7 +63,7 @@ print(get_all_t())
 # expanded_form(70304) # return '70000 + 300 + 4'
 
 def expanded_form(num: int) -> str:
-    str_num: str = str(num)
+    str_num = str(num)
     list_digits = [f'{n}{("0" * (len(str_num) - i - 1))}' for i, n in enumerate(str_num) if n != '0']
     return ' + '.join(list_digits)
 

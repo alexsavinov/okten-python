@@ -5,7 +5,7 @@ import functools
 #     3275  —>  "3000 + 200 + 70 +5"
 #
 def expanded_form(num: int) -> str:
-    str_num: str = str(num)
+    str_num = str(num)
     list_digits: list = [f'{n}{("0" * (len(str_num) - i - 1))}' for i, n in enumerate(str_num) if n != '0']
     return ' + '.join(list_digits)
 
