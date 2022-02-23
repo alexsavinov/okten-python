@@ -41,17 +41,22 @@ func2()
 # который будет считать общее количество запущенных  функций декорированных этим декоратором
 #
 
-def decor2(func: Callable, func_calls: dict = {}) -> Callable:
-    func_calls[func]: dict = 0
+def wrap_decor():
+    def decor2(func: Callable, func_calls: dict = {}) -> Callable:
+        func_calls[func]: dict = 0
 
-    def wrapper() -> None:
-        func_calls[func] += 1
-        print('decor calls:', sum(func_calls.values()))
-        func()
-        print(20 * '-')
+        def wrapper() -> None:
+            func_calls[func] += 1
+            print('decor calls:', sum(func_calls.values()))
+            func()
+            print(20 * '-')
 
-    return wrapper
+        return wrapper
 
+    return decor2
+
+
+decor2 = wrap_decor()
 
 print(50 * '*',
       'общее количество запущенных функций декорированных этим декоратором (decor calls):',
