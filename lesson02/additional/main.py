@@ -121,14 +121,13 @@ print(number_of_one(217649194758610011))
 #     [1,3, ['Hello, 'Wordd', [9,6,1]], ['oops'], 9] -> [1, 3, 'Hello, 'Wordd', 9, 6, 1, 'oops', 9]
 # flat використовувати заборонено.
 #
-def recur_flat(arg_list: list = [], arr: list = []) -> list:
-    for i in arg_list:
-        if isinstance(i, list):
-            recur_flat(i, arr)
-        else:
-            arr.append(i)
-
-    return arr
+def recur_flat(arg_item) -> list:
+    if isinstance(arg_item, list):
+        if not arg_item:
+            return []
+        return recur_flat(arg_item[0]) + recur_flat(arg_item[1:])
+    else:
+        return [arg_item]
 
 
 test_list2 = [1, 3, ['Hello', 'World', [9, 6, 1]], ['oops'], 9]
