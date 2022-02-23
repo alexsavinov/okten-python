@@ -109,11 +109,12 @@ print(is_palindrome('topot'))
 # 2176491947586100 -> 3
 #
 def number_of_one(num: int) -> int:
-    return str(num).count('1');
+    return str(num).split('00')[0].count('1');
 
 
 print(50 * '*', 'Количество единиц. сколько раз в этой последовательности встречается число 1:', sep='\n')
 print(number_of_one(2176491947586100))
+print(number_of_one(217649194758610011))
 
 
 # Вирівняти багаторівневий масив в однорівневий
